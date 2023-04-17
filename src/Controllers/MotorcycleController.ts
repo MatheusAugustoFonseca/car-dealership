@@ -46,19 +46,19 @@ class MotorcycleController {
     }
   }
 
-  // public async update() {
-  //   const { params: { id } } = this.req;
-  //   const carObj = this.req.body;
-  //   try {
-  //     const result = await this.service.update(id, carObj);
-  //     if (!result) {
-  //       return this.res.status(404).json({ message: 'Car not found' });
-  //     }
-  //     return this.res.status(200).json(result);
-  //   } catch (error) {
-  //     this.next(error);
-  //   }
-  // }
+  public async update() {
+    const { params: { id } } = this.req;
+    const motorcycleObj = this.req.body;
+    try {
+      const result = await this.service.update(id, motorcycleObj);
+      if (!result) {
+        return this.res.status(404).json({ message: 'Motorcycle not found' });
+      }
+      return this.res.status(200).json(result);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
 
 export default MotorcycleController;

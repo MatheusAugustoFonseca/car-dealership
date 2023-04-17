@@ -27,12 +27,11 @@ class MotorcycleService {
     return this.createMotorcycleDomain(result);
   }
 
-  // public async update(id: string, carObj: ICar) {
-  //   const carODM = new CarODM();
-  //   const result = await carODM.update(id, carObj);
-  //   // if (!result) throw new Error('Car not found', 404);
-  //   return this.createCarDomain(result);
-  // }
+  public async update(id: string, motorcycleObj: IMotorcycle) {
+    const motorcycleODM = new MotorcycleODM();
+    const result = await motorcycleODM.update(id, motorcycleObj);
+    return this.createMotorcycleDomain(result);
+  }
 }
 
 export default MotorcycleService;
