@@ -5,6 +5,7 @@ import MotorcycleService from '../../../src/Services/MotorcycleService';
 import getAllMotorcycle from '../Mocks/getAllMotorcycle.mock';
 import reqNewMotorcycle from '../Mocks/reqNewMotorcycle.mock';
 import resNewMotorcycle from '../Mocks/resNewMotorcycle.mock';
+import updatedMotorcycle from '../Mocks/updatedMotorcycle.mock';
 
 describe('Tests on MotorcycleServices', function () {
   it('should create a new motorcycle on DB', async function () {
@@ -29,6 +30,14 @@ describe('Tests on MotorcycleServices', function () {
     Sinon.stub(Model, 'findOne').resolves(resNewMotorcycle);
     const result = await motorcycleService.getById('643d9a86a0a3b50147987c5a');
     expect(result).to.be.deep.equal(resNewMotorcycle);
+  });
+
+  it('should update and return a motorcycle by his id', async function () {
+    const motorcycleService = new MotorcycleService();
+    Sinon.stub(Model, 'findByIdAndUpdate').resolves(updatedMotorcycle);
+  
+    const result = await motorcycleService.update('643d5b196598959376dba280', resNewMotorcycle);
+    expect(result).to.be.deep.equal(updatedMotorcycle);
   });
 
   afterEach(function () {
