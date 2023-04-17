@@ -14,18 +14,18 @@ class MotorcycleService {
     return this.createMotorcycleDomain(addMotorcycle);
   }
 
-  // public async getAll() {
-  //   const carODM = new CarODM();
-  //   const result = (await carODM.getAll()).map((e) => 
-  //     this.createCarDomain(e));
-  //   return result;
-  // }
+  public async getAll() {
+    const motorcycleODM = new MotorcycleODM();
+    const result = (await motorcycleODM.getAll()).map((e) => 
+      this.createMotorcycleDomain(e));
+    return result;
+  }
 
-  // public async getById(id: string) {
-  //   const carODM = new CarODM();
-  //   const result = await carODM.getById(id);
-  //   return this.createCarDomain(result);
-  // }
+  public async getById(id: string) {
+    const motorcycleODM = new MotorcycleODM();
+    const result = await motorcycleODM.getById(id);
+    return this.createMotorcycleDomain(result);
+  }
 
   // public async update(id: string, carObj: ICar) {
   //   const carODM = new CarODM();
